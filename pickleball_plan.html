@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12-Month Pickleball Development Plan</title>
+<style>
+:root {
+  --green-900: #14532d;
+  --green-800: #166534;
+  --green-700: #15803d;
+  --green-600: #16a34a;
+  --green-500: #22c55e;
+  --green-400: #4ade80;
+  --green-300: #86efac;
+  --green-200: #bbf7d0;
+  --green-100: #dcfce7;
+  --green-50: #f0fdf4;
+
+  --amber-900: #78350f;
+  --amber-800: #92400e;
+  --amber-700: #b45309;
+  --amber-600: #d97706;
+  --amber-500: #f59e0b;
+  --amber-400: #fbbf24;
+  --amber-300: #fcd34d;
+  --amber-200: #fde68a;
+  --amber-100: #fef3c7;
+  --amber-50: #fffbeb;
+
+  --red-700: #b91c1c;
+  --red-600: #dc2626;
+  --red-500: #ef4444;
+  --red-200: #fecaca;
+  --red-100: #fee2e2;
+  --red-50: #fef2f2;
+
+  --blue-700: #1d4ed8;
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --blue-200: #bfdbfe;
+  --blue-100: #dbeafe;
+  --blue-50: #eff6ff;
+
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
+
+  --bg: #fafaf6;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --primary: var(--green-700);
+  --primary-dark: var(--green-900);
+  --primary-light: var(--green-100);
+  --primary-pale: var(--green-50);
+  --accent: var(--amber-500);
+  --accent-dark: var(--amber-700);
+  --accent-pale: var(--amber-50);
+  --border: var(--slate-200);
+  --border-strong: var(--slate-300);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 16px 32px rgba(15, 23, 42, 0.08), 0 4px 8px rgba(15, 23, 42, 0.04);
+
+  --max-width: 920px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Highlight target section briefly when navigated to */
+section:target {
+  animation: targetFlash 1.2s ease-out;
+}
+@keyframes targetFlash {
+  0% { background: var(--amber-50); }
+  100% { background: transparent; }
+}
+
+/* HERO */
+.hero {
+  padding: 5rem 0 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  color: var(--slate-900);
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--primary);
+}
+
+.hero .subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 38rem;
+  margin: 0 auto 2rem;
+  line-height: 1.55;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--slate-500);
+}
+
+.hero-meta strong {
+  color: var(--slate-800);
+  font-weight: 600;
+}
+
+.hero-meta .dot { color: var(--slate-300); }
+
+/* READING GUIDE */
+.reading-guide {
+  background: var(--blue-50);
+  border-left: 4px solid var(--blue-500);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin: 0 0 2rem;
+}
+
+.reading-guide h3 {
+  margin: 0 0 0.5rem !important;
+  color: var(--blue-700);
+  font-size: 1.1rem !important;
+}
+
+.reading-guide p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--slate-700);
+}
+
+.reading-guide ul {
+  list-style: none;
+  margin: 0.75rem 0 0 !important;
+  padding: 0 !important;
+}
+
+.reading-guide ul li {
+  padding: 0.4rem 0 0.4rem 0;
+  font-size: 0.92rem;
+  color: var(--slate-700);
+  border-bottom: 1px solid var(--blue-100);
+}
+
+.reading-guide ul li:last-child { border-bottom: none; }
+
+.reading-guide ul li strong { color: var(--blue-700); }
+
+/* QUICK START CALLOUT */
+.quick-start {
+  background: linear-gradient(135deg, var(--amber-50) 0%, var(--amber-100) 100%);
+  border: 2px solid var(--amber-300);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin: 0 0 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.quick-start-text {
+  flex: 1 1 280px;
+}
+
+.quick-start-text strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--amber-900);
+  margin-bottom: 0.25rem;
+}
+
+.quick-start-text p {
+  font-size: 0.92rem;
+  color: var(--amber-900);
+  margin: 0;
+}
+
+.quick-start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--amber-700);
+  color: white !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.quick-start-btn:hover {
+  background: var(--amber-800);
+  transform: translateY(-1px);
+  text-decoration: none !important;
+}
+
+/* TOC */
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.toc-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.toc ol {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.25rem 1.5rem;
+  counter-reset: toc;
+}
+
+.toc ol li { counter-increment: toc; }
+
+.toc ol li a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  text-decoration: none;
+  color: var(--slate-700);
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.toc ol li a::before {
+  content: counter(toc, decimal-leading-zero);
+  color: var(--slate-400);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.toc ol li a:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary-light);
+}
+
+/* SECTIONS */
+section {
+  margin-bottom: 4rem;
+  scroll-margin-top: 2rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+section h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--slate-900);
+  line-height: 1.2;
+}
+
+.section-intro {
+  font-size: 1rem;
+  color: var(--slate-600);
+  margin: -0.5rem 0 1.5rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+section h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  color: var(--slate-900);
+}
+
+section h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.5rem;
+  color: var(--slate-800);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+section p {
+  margin-bottom: 1rem;
+  color: var(--slate-700);
+}
+
+section p.lead {
+  font-size: 1.1rem;
+  color: var(--slate-700);
+  margin-bottom: 1.25rem;
+}
+
+section ul, section ol {
+  margin: 0.75rem 0 1rem 1.5rem;
+}
+
+section ul li, section ol li {
+  margin-bottom: 0.4rem;
+  color: var(--slate-700);
+}
+
+section strong {
+  color: var(--slate-900);
+  font-weight: 600;
+}
+
+/* PULL QUOTE */
+.pull-quote {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--slate-800);
+  text-align: center;
+  margin: 2.5rem auto;
+  max-width: 36rem;
+  padding: 0 1rem;
+}
+
+.pull-quote em { color: var(--primary); font-style: italic; }
+.pull-quote .by {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--slate-500);
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.callout.warning { border-left-color: var(--amber-500); background: var(--amber-50); }
+.callout.danger { border-left-color: var(--red-500); background: var(--red-50); }
+.callout.cue { border-left-color: var(--blue-500); background: var(--blue-50); }
+.callout.honest { border-left-color: var(--slate-700); background: var(--slate-50); }
+
+.callout-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.callout.warning .callout-label { color: var(--amber-700); }
+.callout.danger .callout-label { color: var(--red-700); }
+.callout.cue .callout-label { color: var(--blue-700); }
+.callout.honest .callout-label { color: var(--slate-700); }
+
+.callout p:last-child { margin-bottom: 0; }
+
+/* TABLES */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--slate-50);
+  font-weight: 700;
+  color: var(--slate-700);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+tr:last-child td { border-bottom: none; }
+
+td.num, th.num {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+td.label {
+  font-weight: 600;
+  color: var(--slate-800);
+}
+
+/* HEAT MAP cells */
+.heat-1 { background: var(--green-50); color: var(--green-900); }
+.heat-2 { background: var(--green-100); color: var(--green-900); }
+.heat-3 { background: var(--green-200); color: var(--green-900); }
+.heat-4 { background: var(--green-300); color: var(--green-900); }
+.heat-5 { background: var(--green-500); color: white; }
+.heat-6 { background: var(--green-600); color: white; }
+.heat-7 { background: var(--green-700); color: white; }
+.heat-8 { background: var(--green-800); color: white; }
+
+/* PHASE CARDS */
+.phases {
+  display: grid;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.phase {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.phase:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.phase::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+}
+
+.phase-1::before { background: var(--green-500); }
+.phase-2::before { background: var(--blue-500); }
+.phase-3::before { background: var(--amber-500); }
+.phase-4::before { background: var(--red-500); }
+
+.phase-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.phase-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-family: var(--font-mono);
+}
+
+.phase-1 .phase-num { color: var(--green-700); }
+.phase-2 .phase-num { color: var(--blue-700); }
+.phase-3 .phase-num { color: var(--amber-700); }
+.phase-4 .phase-num { color: var(--red-700); }
+
+.phase-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--slate-900);
+  letter-spacing: -0.01em;
+}
+
+.phase-window {
+  font-size: 0.85rem;
+  color: var(--slate-500);
+  font-family: var(--font-mono);
+}
+
+.phase-goal {
+  font-size: 0.95rem;
+  color: var(--slate-600);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.phase ul { margin-bottom: 0.5rem; }
+
+/* PHASE TIMELINE */
+.timeline-wrap {
+  margin: 2rem 0;
+}
+
+.timeline-bar {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.timeline-month {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  border-right: 1px solid rgba(255,255,255,0.5);
+}
+
+.timeline-month:last-child { border-right: none; }
+
+.tm-1, .tm-2, .tm-3 { background: var(--green-200); color: var(--green-900); }
+.tm-4, .tm-5, .tm-6 { background: var(--blue-200); color: var(--blue-700); }
+.tm-7, .tm-8, .tm-9 { background: var(--amber-200); color: var(--amber-900); }
+.tm-10, .tm-11, .tm-12 { background: var(--red-200); color: var(--red-700); }
+
+.timeline-labels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.timeline-label {
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.timeline-label .lbl-name { display: block; font-size: 1rem; }
+.timeline-label .lbl-window { display: block; font-size: 0.75rem; color: var(--slate-500); font-family: var(--font-mono); margin-top: 0.15rem; }
+
+.timeline-labels .timeline-label:nth-child(1) { color: var(--green-700); }
+.timeline-labels .timeline-label:nth-child(2) { color: var(--blue-700); }
+.timeline-labels .timeline-label:nth-child(3) { color: var(--amber-700); }
+.timeline-labels .timeline-label:nth-child(4) { color: var(--red-700); }
+
+/* DRILL CARDS */
+.drills {
+  display: grid;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.drill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.drill:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.drill-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.drill-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--slate-400);
+  font-variant-numeric: tabular-nums;
+}
+
+.drill-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--slate-900);
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+
+.drill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber-800);
+  background: var(--amber-100);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+}
+
+.drill-tag.new {
+  color: var(--blue-700);
+  background: var(--blue-100);
+}
+
+.drill-summary {
+  font-size: 0.95rem;
+  color: var(--slate-600);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.drill-section {
+  margin-top: 1rem;
+}
+
+.drill-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate-500);
+  margin-bottom: 0.4rem;
+}
+
+.drill-section ul { margin: 0 0 0 1.25rem; }
+
+.drill-section ul li {
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+/* COMPARE BOX (right vs wrong) */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+@media (max-width: 600px) {
+  .compare { grid-template-columns: 1fr; }
+}
+
+.compare > div {
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+
+.compare-good {
+  background: var(--green-50);
+  border: 1px solid var(--green-200);
+}
+
+.compare-bad {
+  background: var(--red-50);
+  border: 1px solid var(--red-100);
+}
+
+.compare-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.compare-good .compare-label { color: var(--green-700); }
+.compare-bad .compare-label { color: var(--red-600); }
+
+.compare > div ul { margin: 0 0 0 1.1rem !important; }
+.compare > div ul li { font-size: 0.88rem; margin-bottom: 0.3rem; color: var(--slate-700); }
+
+/* SIGNPOST (you'll know you're doing it right when…) */
+.signpost {
+  background: var(--green-50);
+  border-left: 4px solid var(--green-600);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.signpost-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-700);
+  margin-bottom: 0.4rem;
+}
+
+.signpost p { margin: 0; font-size: 0.92rem; color: var(--slate-700); }
+
+/* ANALOGY (inline metaphor) */
+.analogy {
+  background: var(--amber-50);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  font-size: 0.92rem;
+  color: var(--amber-900);
+  border-left: 3px solid var(--amber-500);
+}
+
+.analogy-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber-700);
+  margin-bottom: 0.25rem;
+}
+
+/* GLOSSARY */
+.glossary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.glossary-term {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.glossary-term:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.glossary-term .term {
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.glossary-term .term .alias {
+  color: var(--slate-400);
+  font-weight: 400;
+  font-size: 0.85rem;
+  margin-left: 0.4rem;
+}
+
+.glossary-term .def {
+  font-size: 0.88rem;
+  color: var(--slate-700);
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.glossary-term .why {
+  font-size: 0.78rem;
+  color: var(--slate-500);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.glossary-group-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* GRIP PRESSURE SCALE */
+.grip-scale {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.grip-bar {
+  position: relative;
+  height: 40px;
+  background: linear-gradient(to right,
+    #4ade80 0%,
+    #86efac 15%,
+    #fde68a 35%,
+    #fbbf24 55%,
+    #f97316 75%,
+    #ef4444 100%);
+  border-radius: 20px;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.grip-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--slate-500);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.grip-bar-labels span {
+  width: 24px;
+  text-align: center;
+}
+
+.grip-rows {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.grip-row {
+  display: grid;
+  grid-template-columns: 60px 160px 1fr;
+  gap: 1rem;
+  font-size: 0.92rem;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.grip-row .grip-num {
+  font-weight: 800;
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: 0.3rem;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.grip-1 { background: var(--green-500); }
+.grip-3 { background: var(--green-600); }
+.grip-5 { background: var(--amber-500); }
+.grip-7 { background: var(--amber-600); }
+.grip-10 { background: var(--red-600); }
+
+.grip-row .grip-shot {
+  font-weight: 700;
+  color: var(--slate-800);
+}
+
+.grip-row .grip-feel {
+  color: var(--slate-600);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+  .grip-row {
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.4rem 0.75rem;
+  }
+  .grip-row .grip-feel { grid-column: 1 / -1; }
+}
+
+/* APARTMENT DIAGRAM */
+.diagram {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.diagram-svg {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.diagram-caption {
+  font-size: 0.85rem;
+  color: var(--slate-500);
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+
+/* DAILY ROUTINE FLOW */
+.day-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  align-items: stretch;
+}
+
+.flow-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.flow-step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg);
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+@media (max-width: 720px) {
+  .flow-step:not(:last-child)::after {
+    content: "↓";
+    right: 50%;
+    top: auto;
+    bottom: -0.65rem;
+    transform: translateX(50%);
+  }
+}
+
+.flow-step-time {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-family: var(--font-mono);
+  margin-bottom: 0.25rem;
+}
+
+.flow-step-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 0.25rem;
+}
+
+.flow-step-detail {
+  font-size: 0.78rem;
+  color: var(--slate-500);
+  line-height: 1.4;
+}
+
+/* TWO COLUMN */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 720px) {
+  .two-col { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+.col-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.col-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* PROBLEM GRID */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.problem {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  position: relative;
+}
+
+.problem-num {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--slate-100);
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.problem h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1rem;
+  color: var(--slate-900);
+}
+
+.problem p {
+  font-size: 0.9rem;
+  color: var(--slate-600);
+  margin: 0;
+}
+
+/* PRINCIPLES */
+.principles {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  align-items: center;
+}
+
+.principle-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  line-height: 1;
+  text-align: center;
+}
+
+.principle h4 {
+  margin: 0 0 0.25rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.05rem;
+}
+
+.principle p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--slate-600);
+}
+
+/* ROTATION (focus rotation in social play) */
+.rotation {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  counter-reset: rot;
+}
+
+.rotation-item {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--slate-50);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+  align-items: center;
+}
+
+.rotation-item::before {
+  counter-increment: rot;
+  content: "S" counter(rot);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+.rotation-item span {
+  font-size: 0.95rem;
+  color: var(--slate-800);
+}
+
+/* CHECKLIST */
+.checklist {
+  list-style: none;
+  margin: 1rem 0 1rem 0 !important;
+  padding: 0 !important;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 2.25rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 2px solid var(--border-strong);
+  border-radius: 4px;
+  background: var(--surface);
+}
+
+/* RESOURCE LIST */
+.resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.resource {
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.resource-name {
+  font-weight: 700;
+  color: var(--slate-900);
+  font-size: 0.95rem;
+}
+
+.resource-desc {
+  font-size: 0.85rem;
+  color: var(--slate-600);
+  margin-top: 0.25rem;
+}
+
+/* SUCCESS LIST */
+.success-list {
+  list-style: none;
+  margin: 1.5rem 0 !important;
+  padding: 0 !important;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.success-list li {
+  padding: 0.85rem 1.25rem 0.85rem 2.75rem;
+  background: var(--green-50);
+  border: 1px solid var(--green-100);
+  border-radius: var(--radius-md);
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--slate-800);
+}
+
+.success-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--green-600);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* FAQ */
+.faq {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.faq-q {
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.faq-q::before {
+  content: "Q";
+  display: inline-block;
+  color: white;
+  background: var(--primary);
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.faq-a {
+  color: var(--slate-700);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.faq-a::before {
+  content: "A";
+  display: inline-block;
+  color: white;
+  background: var(--accent-dark);
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.faq-a > div { flex: 1; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 4rem 0 1rem;
+  font-size: 0.85rem;
+  color: var(--slate-400);
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+footer .ball {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  vertical-align: middle;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .hero { padding: 3.5rem 0 2.5rem; }
+  .hero h1 { font-size: 2.1rem; }
+  .toc { padding: 1.25rem 1.5rem; }
+  section h2 { font-size: 1.5rem; }
+  .phase, .drill { padding: 1.5rem; }
+  .principle { grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1rem; }
+  .principle-num { font-size: 1.5rem; }
+  th, td { padding: 0.6rem 0.7rem; }
+  .quick-start { padding: 1.25rem; }
+}
+
+/* PRINT */
+@media print {
+  .toc, .quick-start, .reading-guide { display: none; }
+  body { background: white; }
+  .drill, .phase, .callout, .col-card, .problem, .resource, .glossary-term, .signpost, .compare > div, .grip-scale { box-shadow: none; break-inside: avoid; border: 1px solid #ddd; }
+  .hero { padding: 2rem 0 1rem; }
+  section { margin-bottom: 2rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <span class="eyebrow">12-Month Development Plan · v3.0</span>
+  <h1>From <em>3.0</em> to <em>3.5/4.0</em><br>Pickleball</h1>
+  <p class="subtitle">A structured, apartment-friendly path out of stagnation for a 1-year player with a one-handed backhand, no drill partner, and no court access for solo work.</p>
+  <div class="hero-meta">
+    <span><strong>Foam ball</strong> + Monarch 16mm</span>
+    <span class="dot">•</span>
+    <span><strong>Glass-door</strong> wall practice</span>
+    <span class="dot">•</span>
+    <span><strong>1–2</strong> social sessions/week</span>
+    <span class="dot">•</span>
+    <span><strong>3–5h</strong> home practice/week</span>
+  </div>
+</header>
+
+<div class="reading-guide">
+  <h3>How to read this plan</h3>
+  <p>This document is a <strong>reference</strong>, not a novel. Don't try to absorb it all in one sitting. Pick one of these paths based on what you need right now:</p>
+  <ul>
+    <li><strong>I want to start TODAY.</strong> Skip ahead to <a href="#starter">Section 22 — Starter routine</a>. Do the 30-min daily routine for two weeks. Then come back here.</li>
+    <li><strong>I want to understand the why first.</strong> Read sections 1–6 in order. Then start the routine.</li>
+    <li><strong>I'm confused by a pickleball term.</strong> Check <a href="#glossary">Section 1 — Glossary</a>. Every term is defined in plain English.</li>
+    <li><strong>I'm stuck or something isn't working.</strong> See <a href="#faq">Section 17 — FAQ</a> and <a href="#fixes">Section 15 — Specific fixes</a>.</li>
+    <li><strong>It's been 6 weeks.</strong> Run the tests in <a href="#checkpoints">Section 13 — Diagnostic checkpoints</a>.</li>
+    <li><strong>Starting a new phase.</strong> Re-read <a href="#phases">Section 11 — Four phases</a> for that phase, plus the relevant drills.</li>
+  </ul>
+</div>
+
+<div class="quick-start">
+  <div class="quick-start-text">
+    <strong>Don't overthink it.</strong>
+    <p>The single best thing you can do right now is start the 14-day starter routine. The rest of this document explains the why and the how, but the routine is the doing.</p>
+  </div>
+  <a href="#starter" class="quick-start-btn">→ Start the 14-day routine</a>
+</div>
+
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc-label">Contents</div>
+  <ol>
+    <li><a href="#glossary">Glossary — pickleball terms in plain English</a></li>
+    <li><a href="#framing">Honest framing</a></li>
+    <li><a href="#performance-model">Where wins actually come from</a></li>
+    <li><a href="#problems">The 4 problems we're solving</a></li>
+    <li><a href="#mental-model">How to think about improvement</a></li>
+    <li><a href="#principles">Training principles</a></li>
+    <li><a href="#setup">Apartment setup (with diagram)</a></li>
+    <li><a href="#grip">Grip pressure scale</a></li>
+    <li><a href="#weekly">Weekly structure</a></li>
+    <li><a href="#timeline">Phase timeline (12 months at a glance)</a></li>
+    <li><a href="#phases">Four phases — month by month</a></li>
+    <li><a href="#drills">Drill library</a></li>
+    <li><a href="#checkpoints">Diagnostic checkpoints</a></li>
+    <li><a href="#benchmarks">Skill benchmarks (3.0 vs 4.0)</a></li>
+    <li><a href="#fixes">Specific fixes for your problems</a></li>
+    <li><a href="#social">Social play strategy</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#resources">Free education resources</a></li>
+    <li><a href="#pitfalls">Common pitfalls</a></li>
+    <li><a href="#signs">Signs you're improving</a></li>
+    <li><a href="#success">What success looks like at month 12</a></li>
+    <li><a href="#starter">Starter routine — first 2 weeks</a></li>
+    <li><a href="#sources">Sources &amp; further reading</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="glossary">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>Glossary — pickleball terms in plain English</h2>
+  </div>
+  <p class="section-intro">Every word in this plan that might trip you up, defined here. Bookmark this section.</p>
+
+  <div class="glossary-group-label">Court &amp; positions</div>
+  <div class="glossary">
+    <div class="glossary-term">
+      <div class="term">Kitchen <span class="alias">a.k.a. NVZ, Non-Volley Zone</span></div>
+      <div class="def">The 2.13 m (7 ft) strip on each side of the net where you can't hit the ball before it bounces.</div>
+      <div class="why">Most rallies are decided here. Getting to the kitchen line is the goal of every point.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Baseline</div>
+      <div class="def">The back line of the court. You serve from behind it.</div>
+      <div class="why">A bad place to stay during a rally. You want to be at the kitchen line.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Transition zone <span class="alias">a.k.a. no-mans-land</span></div>
+      <div class="def">The middle of the court between the baseline and the kitchen line.</div>
+      <div class="why">A bad place to get stuck — too close to volley well, too far to dink. Reset and keep moving forward.</div>
+    </div>
+  </div>
+
+  <div class="glossary-group-label">Shots — the soft game</div>
+  <div class="glossary">
+    <div class="glossary-term">
+      <div class="term">Dink</div>
+      <div class="def">A soft shot that arcs gently over the net and lands in the kitchen on the other side.</div>
+      <div class="why">The slow, patient game. Kitchen-to-kitchen exchanges are dink rallies.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Drop <span class="alias">a.k.a. drop shot</span></div>
+      <div class="def">A soft shot from anywhere behind the kitchen, arcing high and dropping into the kitchen on the other side.</div>
+      <div class="why">Lets you advance to the net safely. The "third shot drop" is the most important version.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Third shot drop <span class="alias">TSD</span></div>
+      <div class="def">A drop shot played as the 3rd shot of a rally — i.e. by the serving team, after the return.</div>
+      <div class="why">The hardest, most important shot in pickleball. Your stagnation is mostly here.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Reset</div>
+      <div class="def">Absorbing a fast incoming ball with soft hands and dropping it gently back into the kitchen.</div>
+      <div class="why">"Catch, don't hit." Resets neutralize attacks. The single biggest skill separating 3.5 from 4.0.</div>
+    </div>
+  </div>
+
+  <div class="glossary-group-label">Shots — the hard game</div>
+  <div class="glossary">
+    <div class="glossary-term">
+      <div class="term">Drive</div>
+      <div class="def">A hard, low, flat shot. Power shot.</div>
+      <div class="why">Used selectively. Driving when you should drop is a classic 3.0 mistake.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Volley</div>
+      <div class="def">Hitting the ball before it bounces.</div>
+      <div class="why">Only legal outside the kitchen. All the action at the net is volley exchanges.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Speedup <span class="alias">a.k.a. attack</span></div>
+      <div class="def">Suddenly attacking a ball with pace, usually from a slow dink rally, when you spot an attackable ball.</div>
+      <div class="why">Only attack balls at or above net height. Attacking low balls = popping them up.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Lob</div>
+      <div class="def">A high arcing shot meant to fly over your opponent's head.</div>
+      <div class="why">Occasional surprise weapon. Lob too often and you get punished.</div>
+    </div>
+  </div>
+
+  <div class="glossary-group-label">Mistakes &amp; battles</div>
+  <div class="glossary">
+    <div class="glossary-term">
+      <div class="term">Pop / Pop-up</div>
+      <div class="def">Your shot floats too high, giving your opponent an easy attack.</div>
+      <div class="why">The cardinal sin. Eliminating pops is most of the work between 3.0 and 4.0.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Unforced error</div>
+      <div class="def">Hitting the ball into the net or out of bounds without being pressured. Just a mistake.</div>
+      <div class="why">A 4.0 hits &lt;5 unforced errors per game. A 3.0 might hit 15+.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Hand battle</div>
+      <div class="def">Fast volley exchanges at the kitchen line, both players punching shots at each other.</div>
+      <div class="why">Whoever has soft hands and stays compact wins. Not whoever swings hardest.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Dink rally</div>
+      <div class="def">A patient, back-and-forth exchange of dinks across the kitchen.</div>
+      <div class="why">A patience contest. Whoever pops first loses.</div>
+    </div>
+  </div>
+
+  <div class="glossary-group-label">Technique &amp; body</div>
+  <div class="glossary">
+    <div class="glossary-term">
+      <div class="term">Continental grip</div>
+      <div class="def">Holding the paddle like you'd hold a hammer. The "V" shape between your thumb and index finger sits on the top edge of the paddle handle.</div>
+      <div class="why">Lets you hit forehand and backhand without changing grips mid-rally. Essential.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Split step</div>
+      <div class="def">A small hop (or step) you do JUST as your opponent hits, landing balanced and ready to move any direction.</div>
+      <div class="why">Without it, you can't react fast enough. The single most important footwork habit.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Pivot step</div>
+      <div class="def">Stepping your dominant-side foot back and slightly out, opening your hips, to make space for a forehand swing.</div>
+      <div class="why">Critical for one-handed backhand players who default to backhand at the kitchen.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Soft hands <span class="alias">a.k.a. dead hands</span></div>
+      <div class="def">A loose, relaxed grip that absorbs incoming pace instead of reflecting it back.</div>
+      <div class="why">Soft hands are how you reset. Tight hands = pop-ups.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Compact stroke</div>
+      <div class="def">A small swing with little or no backswing.</div>
+      <div class="why">Required at the kitchen. Big swings = late contact = pops.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Two-hander</div>
+      <div class="def">A two-handed backhand, where your non-paddle hand grips the paddle below your dominant hand.</div>
+      <div class="why">More stable for counters and resets. You play one-handed, which has more reach but less stability.</div>
+    </div>
+  </div>
+
+  <div class="glossary-group-label">Trick shots (ignore for now)</div>
+  <div class="glossary">
+    <div class="glossary-term">
+      <div class="term">ATP <span class="alias">Around-the-Post</span></div>
+      <div class="def">A trick shot where the ball goes around the net post (not over the net).</div>
+      <div class="why">Cool but rare. Don't even think about it until you're solidly 4.0.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">Erne</div>
+      <div class="def">Jumping in front of the kitchen to volley a dink before it crosses to your side of the net.</div>
+      <div class="why">Advanced. Worry about it after 4.0.</div>
+    </div>
+  </div>
+
+  <div class="glossary-group-label">Ratings</div>
+  <div class="glossary">
+    <div class="glossary-term">
+      <div class="term">DUPR</div>
+      <div class="def">A modern global pickleball rating system. Numbers from 2.0 to 8.0+. Updates after every reported match.</div>
+      <div class="why">The most widely-used rating today. Sign up free at dupr.com.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">UTPR</div>
+      <div class="def">USA Pickleball's official tournament rating system. Similar scale.</div>
+      <div class="why">Used for sanctioned tournaments. Less common than DUPR for casual play.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">3.0 (where you are)</div>
+      <div class="def">Plays casual matches. Inconsistent on most shots. Knows the rules and basic strategy. Strategy mostly = "hit it back and hope."</div>
+      <div class="why">This is the "I know the concepts but my body doesn't execute" phase. You're textbook 3.0.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">3.5 (12-month realistic target)</div>
+      <div class="def">Can sustain dink rallies. Knows when to drop vs drive. Inconsistent under pressure but mostly clean. Few unforced errors.</div>
+      <div class="why">Solid rec player. Welcome at most open-play sessions.</div>
+    </div>
+    <div class="glossary-term">
+      <div class="term">4.0 (12-month stretch goal)</div>
+      <div class="def">Consistent technique. Constructs points deliberately. Recognizes attackable balls. Can play at almost any rec center comfortably.</div>
+      <div class="why">A real player. Has a clear strategy and the technique to execute it.</div>
+    </div>
+  </div>
+</section>
+
+<section id="framing">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Honest framing</h2>
+  </div>
+  <p class="lead">Going from a stagnating 3.0 to a legitimate 4.0 in 12 months — with apartment-only drilling, no drill partner, and 1–2 social sessions/week — is ambitious. Here's what's realistic:</p>
+  <ul>
+    <li><strong>Solid 3.5 by month 12</strong> — high probability if you follow the plan with discipline.</li>
+    <li><strong>Genuine 4.0</strong> — possible if you push the upper end of your time budget (8–10 hrs/week home practice) AND treat your social sessions as deliberate practice, not casual play.</li>
+  </ul>
+  <div class="callout honest">
+    <div class="callout-label">The diagnosis</div>
+    <p>Your stagnation isn't from lack of knowledge. You already know the strategy. You just don't <em>trust your shots</em> because you haven't grooved the technique. That's the whole game plan: <strong>groove technique at home, apply it under pressure at social</strong>.</p>
+  </div>
+</section>
+
+<section id="performance-model">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>Where wins actually come from</h2>
+  </div>
+  <p class="section-intro">Where to spend your training time. The answer is: mostly soft game.</p>
+  <p>At your level, wins and losses are decided by skill domains in roughly these proportions. Spend your training time accordingly.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Skill domain</th>
+          <th class="num">Win-rate impact</th>
+          <th>Your current status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Soft game (dinks, drops, resets)</td>
+          <td class="num">50–60%</td>
+          <td>Inconsistent — pops too often</td>
+        </tr>
+        <tr>
+          <td class="label">Transition control (baseline → kitchen)</td>
+          <td class="num">~20%</td>
+          <td>Likely weak — no split step</td>
+        </tr>
+        <tr>
+          <td class="label">Hands (volleys, counters, hand battles)</td>
+          <td class="num">~15%</td>
+          <td>Error-prone, swings instead of blocks</td>
+        </tr>
+        <tr>
+          <td class="label">Serve / return</td>
+          <td class="num">5–10%</td>
+          <td>Probably adequate</td>
+        </tr>
+        <tr>
+          <td class="label">Strategy / shot selection</td>
+          <td class="num">Low ceiling</td>
+          <td>Already sufficient</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Conclusion:</strong> your bottleneck is <strong>execution consistency under low pace</strong>, not knowledge. About 70% of your improvement comes from grooving the soft game and transition. Bias your drilling time accordingly — and don't waste hours practicing serves.</p>
+</section>
+
+<section id="problems">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2>The 4 problems we're solving</h2>
+  </div>
+  <p class="section-intro">Everything in this plan addresses one of these four. If a drill isn't fixing one of them, skip it.</p>
+  <div class="problem-grid">
+    <div class="problem">
+      <div class="problem-num">01</div>
+      <h4>Pop-prone soft game</h4>
+      <p>Drops, dinks, blocks all pop up. Three causes: grip too tight, paddle face too open at contact, swinging at the ball instead of letting it land on the paddle.</p>
+    </div>
+    <div class="problem">
+      <div class="problem-num">02</div>
+      <h4>Backhand over-reliance at the kitchen</h4>
+      <p>Common for one-handed backhand players because the backhand naturally covers your body. Fix: footwork (pivot step) to get the ball outside your forehand shoulder, plus deliberate forehand-priority drilling.</p>
+    </div>
+    <div class="problem">
+      <div class="problem-num">03</div>
+      <h4>No split-step / footwork habit</h4>
+      <p>This is a learned reflex, not athleticism. We'll build it through isolated mirror practice until it's automatic. 4 weeks of 50 reps/day flips this on.</p>
+    </div>
+    <div class="problem">
+      <div class="problem-num">04</div>
+      <h4>Volume problem</h4>
+      <p>1–2 social sessions/week with no drilling = stagnation. Fix: 30–45 min of high-quality home practice 5–6 days/week. Frequency &gt; duration.</p>
+    </div>
+  </div>
+</section>
+
+<section id="mental-model">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2>How to think about improvement</h2>
+  </div>
+  <p class="section-intro">Two mental shifts that matter more than any drill.</p>
+  <p>Your current frame: <em>"I know what to do."</em> That's the trap. Knowledge ≠ skill. Skill is what your body executes when you're not thinking.</p>
+  <p class="pull-quote">Stop asking "do I know how to do this?"<br>Start asking <em>"can I execute this 20 times in a row, under control?"</em><span class="by">— the actual difference between 3.0 and 4.0</span></p>
+  <p>The other shift: stop playing <strong>reactive</strong> pickleball (just hitting the ball back) and start playing <strong>proactive</strong> pickleball (controlling pace, height, and placement so your opponent makes the error). Reactive players hope. Proactive players construct.</p>
+  <div class="analogy">
+    <div class="analogy-label">Analogy</div>
+    Reactive pickleball is like trying to keep a beach ball in the air — you just whack it back. Proactive pickleball is like a chess game — every shot has a purpose: pull them wide, get them to lift it, then attack.
+  </div>
+</section>
+
+<section id="principles">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2>Training principles</h2>
+  </div>
+  <p class="section-intro">Five rules that govern every minute of practice. Break these and you waste your time.</p>
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-num">01</div>
+      <div>
+        <h4>Frequency &gt; duration</h4>
+        <p>Five 30-minute sessions a week beats one 2.5-hour session. Skills consolidate during sleep cycles between sessions.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">02</div>
+      <div>
+        <h4>Targeted reps, not random rallies</h4>
+        <p>"I'll just hit the wall for 20 minutes" decays into mindless reps. Always have ONE technical thing you're checking each rep.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">03</div>
+      <div>
+        <h4>Train error types, not just shots</h4>
+        <p>You don't have a "drop problem." You have a paddle-face + grip-tension + contact-timing problem that shows up on drops. Diagnose causes, drill causes.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">04</div>
+      <div>
+        <h4>Measurement over feeling</h4>
+        <p>Without numbers you'll feel like you're improving when you're not. That's exactly how you got stuck. Track consecutive counts, success rates, pop counts.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">05</div>
+      <div>
+        <h4>Slow before fast</h4>
+        <p>Form first, then speed. A clean slow third-shot drop becomes a clean fast one. A messy fast one becomes an injured shoulder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="setup">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2>Apartment setup</h2>
+  </div>
+  <p class="section-intro">Five minutes of setup. Then you have a real practice space.</p>
+
+  <div class="callout danger">
+    <div class="callout-label">Glass door safety — read this first</div>
+    <p>Hang a heavy blanket, sheet, or large bath towel over the glass when wall-drilling. Use painter's tape to mark a target zone on the blanket. <strong>Foam balls won't break the glass</strong>, but if your paddle slips out of your hand or you over-commit and hit the glass with the paddle, you'll have a bad day. Stay at least <strong>2 m back when driving</strong>. Never let the paddle face contact the glass.</p>
+  </div>
+
+  <div class="diagram">
+    <svg class="diagram-svg" viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect x="0" y="0" width="540" height="280" fill="#fafaf6"/>
+
+      <!-- Glass door (top of frame, edge-on) -->
+      <rect x="40" y="40" width="460" height="14" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="270" y="32" font-size="11" text-anchor="middle" fill="#475569" font-family="-apple-system, sans-serif">Glass sliding door (covered with blanket)</text>
+
+      <!-- Target zone -->
+      <rect x="220" y="60" width="100" height="48" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6,3"/>
+      <text x="270" y="135" font-size="11" text-anchor="middle" fill="#dc2626" font-family="-apple-system, sans-serif" font-weight="600">Target zone</text>
+      <text x="270" y="150" font-size="10" text-anchor="middle" fill="#dc2626" font-family="-apple-system, sans-serif">~90 cm height</text>
+
+      <!-- Distance arrow -->
+      <line x1="270" y1="170" x2="270" y2="225" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <polygon points="270,225 265,217 275,217" fill="#64748b"/>
+      <polygon points="270,170 265,178 275,178" fill="#64748b"/>
+      <text x="285" y="200" font-size="11" fill="#475569" font-family="-apple-system, sans-serif" font-weight="600">~2 m</text>
+      <text x="285" y="214" font-size="9" fill="#64748b" font-family="-apple-system, sans-serif">(1.5 m for blocks)</text>
+
+      <!-- Player (top-down view) -->
+      <circle cx="270" cy="240" r="18" fill="#15803d"/>
+      <text x="270" y="245" font-size="12" text-anchor="middle" fill="white" font-family="-apple-system, sans-serif" font-weight="700">YOU</text>
+
+      <!-- Side notes -->
+      <text x="20" y="80" font-size="10" fill="#64748b" font-family="-apple-system, sans-serif">Top-down</text>
+      <text x="20" y="92" font-size="10" fill="#64748b" font-family="-apple-system, sans-serif">view ↓</text>
+    </svg>
+    <p class="diagram-caption">Top-down view of your apartment practice setup. Stand 2 m back for dinks/drops; closer (1.5 m) for blocks. Aim foam ball at the target zone.</p>
+  </div>
+
+  <h3>Equipment notes</h3>
+  <ul>
+    <li><strong>Monarch 16mm.</strong> This is a control paddle, perfect for what you're learning. Don't switch.</li>
+    <li><strong>Foam ball reality.</strong> Foam doesn't fly like a real ball — slower, less bounce, less spin. Treat foam drills as <em>form, timing, and hand-eye work</em>, not exact stroke calibration. Expect 5–10 min of recalibration on real balls when you arrive at social.</li>
+    <li><strong>Wall target.</strong> Mark a horizontal line at ~90 cm on the blanket-covered glass — that's net height. Most dink drills aim at or just above this line.</li>
+    <li><strong>Floor.</strong> If you can, practice on a non-slip surface. Foam ball + tile floor = unpredictable bounces.</li>
+  </ul>
+</section>
+
+<section id="grip">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <h2>Grip pressure scale</h2>
+  </div>
+  <p class="section-intro">The most important number in this plan. Grip pressure controls 80% of pickleball touch.</p>
+  <p>You'll see numbers like "3/10 grip pressure" throughout this plan. Here's what those numbers actually feel like, with real-world analogies. Memorize this.</p>
+
+  <div class="grip-scale">
+    <div class="grip-bar-labels">
+      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+    </div>
+    <div class="grip-bar"></div>
+    <div class="grip-rows">
+      <div class="grip-row">
+        <div class="grip-num grip-1">1</div>
+        <div class="grip-shot">Holding a baby bird</div>
+        <div class="grip-feel">So light the paddle would slip if you tipped your hand. Used between shots to stay relaxed.</div>
+      </div>
+      <div class="grip-row">
+        <div class="grip-num grip-3">2–3</div>
+        <div class="grip-shot">Holding a tube of toothpaste</div>
+        <div class="grip-feel">Firm enough to control, loose enough not to squeeze. <strong>This is your dink, drop, and reset pressure.</strong></div>
+      </div>
+      <div class="grip-row">
+        <div class="grip-num grip-5">4–5</div>
+        <div class="grip-shot">Shaking someone's hand</div>
+        <div class="grip-feel">Normal grip. Used for medium-pace volleys and standard shots.</div>
+      </div>
+      <div class="grip-row">
+        <div class="grip-num grip-7">6–7</div>
+        <div class="grip-shot">Holding a hammer to drive a nail</div>
+        <div class="grip-feel">Firm. Used for drives and speedups when you want pace.</div>
+      </div>
+      <div class="grip-row">
+        <div class="grip-num grip-10">8–10</div>
+        <div class="grip-shot">White knuckles, killing a fly</div>
+        <div class="grip-feel"><strong>NEVER use this in pickleball.</strong> This is the tension that pops every soft shot. If your forearm is sore, you're here.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout cue">
+    <div class="callout-label">The pro secret</div>
+    <p>The Dink's advanced dinking guide says: <strong>~1/10 between shots, firm to ~3/10 only at the moment of contact, then immediately back to 1/10</strong>. This micro-cycling of pressure is what gives pros their touch. Most amateurs hold a constant 5/10, which is why everything feels stiff.</p>
+  </div>
+
+  <div class="signpost">
+    <div class="signpost-label">You'll know you're at 3/10 when…</div>
+    <p>You can wiggle the paddle slightly side-to-side using only your fingers, without it falling out of your hand. Your forearm is fully relaxed.</p>
+  </div>
+</section>
+
+<section id="weekly">
+  <div class="section-header">
+    <span class="section-num">09</span>
+    <h2>Weekly structure</h2>
+  </div>
+  <p class="section-intro">What your week actually looks like, hour by hour.</p>
+
+  <h3>What a daily 30-minute session looks like</h3>
+  <p>Don't do everything every day. This is the rhythm of one typical practice day:</p>
+  <div class="day-flow">
+    <div class="flow-step">
+      <div class="flow-step-time">5 min</div>
+      <div class="flow-step-name">Warm-up</div>
+      <div class="flow-step-detail">Shadow swings (no ball). Loosen wrists, shoulders, hips.</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-time">15–20 min</div>
+      <div class="flow-step-name">Wall block</div>
+      <div class="flow-step-detail">One drill: wall dinks, V drill, drop drill, or speed-up/reset.</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-time">5–10 min</div>
+      <div class="flow-step-name">Footwork</div>
+      <div class="flow-step-detail">50 split steps in mirror + lunges or shuffle steps.</div>
+    </div>
+  </div>
+
+  <h3>What a typical week looks like</h3>
+  <div class="two-col">
+    <div class="col-card">
+      <h4>Wall blocks (rotate)</h4>
+      <ul>
+        <li>Mon — Wall dinks (FH only)</li>
+        <li>Tue — V drill (lateral)</li>
+        <li>Wed — Drop drill</li>
+        <li>Thu — Speed-up / reset combo</li>
+        <li>Fri — Wall dinks (BH only)</li>
+        <li>Sat — Wall block (rapid volleys)</li>
+        <li>Sun — REST or video review</li>
+      </ul>
+      <p style="font-size: 0.85rem; color: var(--slate-500); margin-top: 0.5rem;">This is just a starting rotation — adjust based on what you need most.</p>
+    </div>
+    <div class="col-card">
+      <h4>Footwork (every session)</h4>
+      <ul>
+        <li>50 split steps in front of mirror — non-negotiable</li>
+        <li>50 shadow swings (drive or drop, alternating sides)</li>
+        <li>Lunge + paddle extension (3×10 each side)</li>
+        <li>Shuffle steps in 2 m lane (3×30 sec)</li>
+        <li>Reaction drill (drop ball, catch on paddle)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Conditioning <span style="color: var(--slate-500); font-weight: 400; font-size: 1rem;">(~10 min, 3×/week)</span></h3>
+  <ul>
+    <li>Wall sit in kitchen-ready position, 3×60 sec — builds isometric leg endurance</li>
+    <li>Calf raises 3×20 — for explosive split step</li>
+    <li>Plank 3×45 sec — core stability under shot pressure</li>
+    <li>Wrist curls (use a water bottle if no weight) — paddle control</li>
+  </ul>
+
+  <h3>Weekly: video review <span style="color: var(--slate-500); font-weight: 400; font-size: 1rem;">(15 min, 1×/week)</span></h3>
+  <ul>
+    <li>Film yourself doing 30 reps each: forehand drive, backhand drive, both drops, both dinks</li>
+    <li>Watch slow-mo. Compare to YouTube reference (Ben Johns dinking, Tyson McGuffin third-shot drops)</li>
+    <li>Pick <strong>one specific thing</strong> to fix the next week. Just one.</li>
+  </ul>
+
+  <h3>Social sessions <span style="color: var(--slate-500); font-weight: 400; font-size: 1rem;">(1–2×/week)</span></h3>
+  <ul>
+    <li><strong>Arrive 15–30 min early.</strong> Find anyone, dink with them. Even a 2.5 player can dink. This is your only cooperative practice — don't waste it on warm-up rallies.</li>
+    <li><strong>Pick one focus per session.</strong> See <a href="#social">social play strategy</a> for the rotation.</li>
+    <li><strong>Post-session 5-min reflection.</strong> What popped? What footwork failed? Write it down.</li>
+  </ul>
+
+  <div class="callout warning">
+    <div class="callout-label">If you only have 10 minutes today</div>
+    <p>Skip everything else and do <strong>50 wall dinks (FH) + 50 wall dinks (BH) + 50 mirror split steps</strong>. That's 10 minutes and it's still progress. Showing up beats perfect.</p>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="section-header">
+    <span class="section-num">10</span>
+    <h2>Phase timeline — 12 months at a glance</h2>
+  </div>
+  <p class="section-intro">Print this. Stick it on your fridge. This is where you are vs. where you're going.</p>
+
+  <div class="timeline-wrap">
+    <div class="timeline-bar">
+      <div class="timeline-month tm-1">M1</div>
+      <div class="timeline-month tm-2">M2</div>
+      <div class="timeline-month tm-3">M3</div>
+      <div class="timeline-month tm-4">M4</div>
+      <div class="timeline-month tm-5">M5</div>
+      <div class="timeline-month tm-6">M6</div>
+      <div class="timeline-month tm-7">M7</div>
+      <div class="timeline-month tm-8">M8</div>
+      <div class="timeline-month tm-9">M9</div>
+      <div class="timeline-month tm-10">M10</div>
+      <div class="timeline-month tm-11">M11</div>
+      <div class="timeline-month tm-12">M12</div>
+    </div>
+    <div class="timeline-labels">
+      <div class="timeline-label">
+        <span class="lbl-name">Foundation</span>
+        <span class="lbl-window">Months 1–3</span>
+      </div>
+      <div class="timeline-label">
+        <span class="lbl-name">Consistency</span>
+        <span class="lbl-window">Months 4–6</span>
+      </div>
+      <div class="timeline-label">
+        <span class="lbl-name">Weapons</span>
+        <span class="lbl-window">Months 7–9</span>
+      </div>
+      <div class="timeline-label">
+        <span class="lbl-name">Integration</span>
+        <span class="lbl-window">Months 10–12</span>
+      </div>
+    </div>
+  </div>
+  <p>Each phase has a single dominant goal. You don't move on by calendar — you move on by <strong>passing the checkpoint targets</strong> for that phase. If your numbers aren't there at week 12, repeat Phase 1 for another month before starting Phase 2.</p>
+</section>
+
+<section id="phases">
+  <div class="section-header">
+    <span class="section-num">11</span>
+    <h2>Four phases — month by month</h2>
+  </div>
+  <p class="section-intro">What you're focused on each quarter, and how you know you're ready to move on.</p>
+
+  <div class="phases">
+    <div class="phase phase-1">
+      <div class="phase-header">
+        <span class="phase-num">Phase 1</span>
+        <span class="phase-name">Foundation</span>
+        <span class="phase-window">Months 1–3</span>
+      </div>
+      <p class="phase-goal">Goal: grip awareness, contact point, paddle-face control, split-step habit installed.</p>
+      <ul>
+        <li>Continental grip locked in for soft game</li>
+        <li>Soft hands: 2–3/10 grip pressure on dinks/blocks (see <a href="#grip">grip scale</a>)</li>
+        <li>Contact point in front of lead foot, knee-to-waist height</li>
+        <li>Split step <strong>before every opponent shot</strong>, even when it feels weird</li>
+      </ul>
+      <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--slate-600);"><strong>Drill emphasis:</strong> wall dinks (FH-only first month), shadow swings, split-step isolation.</p>
+    </div>
+
+    <div class="phase phase-2">
+      <div class="phase-header">
+        <span class="phase-num">Phase 2</span>
+        <span class="phase-name">Consistency</span>
+        <span class="phase-window">Months 4–6</span>
+      </div>
+      <p class="phase-goal">Goal: no pops in standard exchanges, third-shot-drop arc dialed in, cross-court dink control.</p>
+      <ul>
+        <li>Drop drill mastery — high arc, lands 30–90 cm past kitchen line</li>
+        <li>Block reset (eat their drive, don't return it)</li>
+        <li>Forehand from kitchen — actively use it, don't run from it</li>
+        <li>Pivot step learned for one-handed BH (right foot back to make space for FH)</li>
+      </ul>
+      <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--slate-600);"><strong>Drill emphasis:</strong> drop drill, V drill, FH-priority dink drill.</p>
+    </div>
+
+    <div class="phase phase-3">
+      <div class="phase-header">
+        <span class="phase-num">Phase 3</span>
+        <span class="phase-name">Weapons</span>
+        <span class="phase-window">Months 7–9</span>
+      </div>
+      <p class="phase-goal">Goal: drives, attacks on high balls, transition zone control.</p>
+      <ul>
+        <li>Drive when appropriate (low return, you're balanced) — flat, with shape</li>
+        <li>Speedup off attackable balls (above your shoulder at the kitchen)</li>
+        <li>Reset from the transition zone (no-mans-land between baseline and kitchen)</li>
+        <li>Discipline rule: only attack balls at or above net height — everything below gets reset</li>
+      </ul>
+      <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--slate-600);"><strong>Drill emphasis:</strong> wall drives with target, speed-up/reset combo, lunge-and-block.</p>
+    </div>
+
+    <div class="phase phase-4">
+      <div class="phase-header">
+        <span class="phase-num">Phase 4</span>
+        <span class="phase-name">Integration</span>
+        <span class="phase-window">Months 10–12</span>
+      </div>
+      <p class="phase-goal">Goal: point construction, pressure tolerance, real 3.5/4.0 play.</p>
+      <ul>
+        <li>Patterns: drop → patient cross-court dink → wait for the pop → speedup</li>
+        <li>Stack/poach awareness in doubles</li>
+        <li>Stay calm in hand battles</li>
+        <li>Read opponent's paddle face to anticipate</li>
+      </ul>
+      <p style="margin-top: 0.75rem; font-size: 0.9rem; color: var(--slate-600);"><strong>Drill emphasis:</strong> video review of full social games, scenario-based wall drills, point-construction simulation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="drills">
+  <div class="section-header">
+    <span class="section-num">12</span>
+    <h2>Drill library</h2>
+  </div>
+  <p class="section-intro">Ten drills total. You only need a subset on any given day — see weekly structure for rotation.</p>
+  <p>Distances are measured from the wall (your blanket-covered glass door). Each drill includes "right vs. wrong" so you can self-diagnose.</p>
+
+  <div class="drills">
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">01 / 10</span>
+        <span class="drill-title">Wall dink drill</span>
+        <span class="drill-tag">★ Foundation</span>
+      </div>
+      <p class="drill-summary">The single most important drill in this plan. Every other touch shot builds on this.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Setup</div>
+        <ul>
+          <li>Stand <strong>1.5–2 m</strong> from the blanket-covered glass</li>
+          <li>Mark a target zone at <strong>~90 cm</strong> height (net height equivalent)</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution</div>
+        <ul>
+          <li>Soft FH dink → wall → bounce → repeat. Work up the consecutive count.</li>
+          <li>Sequence: 50 FH-only → 50 BH-only → alternating</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Key cues</div>
+        <ul>
+          <li><strong>Featherlight grip:</strong> ~1/10 between shots, firm to ~3/10 at contact only (per The Dink's advanced dinking guide)</li>
+          <li>Contact point in front of body, hit the ball <strong>as it falls</strong>, not on the rise — eliminates a timing variable</li>
+          <li>Paddle face slightly open — not flipped up</li>
+          <li><strong>Preset the paddle angle</strong> BEFORE the ball arrives. Let the ball's natural fall do the work — no wrist adjustment at contact.</li>
+          <li>Push from shoulder, no wrist flick</li>
+          <li>Paddle stays in front of body, tip never drops below wrist</li>
+          <li>Still head at contact — don't look up to see "opponent" until after you hit</li>
+        </ul>
+      </div>
+      <div class="compare">
+        <div class="compare-good">
+          <div class="compare-label">✓ Doing it right</div>
+          <ul>
+            <li>Ball comes back to you, easy to hit again</li>
+            <li>Forearm relaxed, no soreness</li>
+            <li>Quiet contact — almost no sound</li>
+            <li>Ball lands within 50 cm of where you stood</li>
+          </ul>
+        </div>
+        <div class="compare-bad">
+          <div class="compare-label">✗ Doing it wrong</div>
+          <ul>
+            <li>Ball flies past you (too hard)</li>
+            <li>Forearm starts aching after 30 reps</li>
+            <li>Loud "thwack" on contact</li>
+            <li>Ball lands behind you or hits ceiling</li>
+          </ul>
+        </div>
+      </div>
+      <div class="signpost">
+        <div class="signpost-label">You'll know you've got it when…</div>
+        <p>You can do 50 dinks and feel like you could do 50 more. The motion feels almost lazy. Your forearm is loose throughout.</p>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Checkpoint</div>
+        <ul>
+          <li>Month 1.5: 20 consecutive FH; Month 6: 100 alternating; Month 12: 200 alternating</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">02 / 10</span>
+        <span class="drill-title">V drill</span>
+        <span class="drill-tag new">Lateral movement</span>
+      </div>
+      <p class="drill-summary">Forces FH ↔ BH transitions and breaks the backhand-default habit.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Setup</div>
+        <ul>
+          <li>Stand 1.5–2 m from wall, in the middle of a 2 m lateral lane</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution</div>
+        <ul>
+          <li>Hit the wall at an angle so the ball rebounds to one side</li>
+          <li>Shuffle, take the next ball with the OPPOSITE wing</li>
+          <li>Hit it back at an angle to the other side, repeat</li>
+          <li>The ball traces a "V" pattern; you're constantly switching FH ↔ BH</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Key cues</div>
+        <ul>
+          <li>Move feet first, paddle second</li>
+          <li>Use pivot step on FH side (right foot back) to make space</li>
+          <li>Don't reach with the paddle — step to the ball</li>
+        </ul>
+      </div>
+      <div class="signpost">
+        <div class="signpost-label">You'll know you've got it when…</div>
+        <p>You can chain together FH-BH-FH-BH for 10+ shots without your feet getting stuck or you panicking and reaching with the paddle.</p>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Checkpoint</div>
+        <ul>
+          <li>Month 3: 10 clean V cycles; Month 6: 25; Month 12: 50+</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">03 / 10</span>
+        <span class="drill-title">Drop drill (toss + arc)</span>
+        <span class="drill-tag">★ Foundation</span>
+      </div>
+      <p class="drill-summary">Mimics third-shot-drop motion. The single shot that pops most for 3.0 players.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Setup</div>
+        <ul>
+          <li>Stand <strong>2–3 m</strong> from wall</li>
+          <li>Mark a high target zone <strong>~1.8 m</strong> up the wall</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution</div>
+        <ul>
+          <li>Toss ball waist-high in front of you</li>
+          <li>Hit it underhand into the wall with a high arc</li>
+          <li>Goal: ball hits 1.8 m+ up the wall, comes down soft, lands in your "kitchen zone" (the floor near you)</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Key cues</div>
+        <ul>
+          <li>Use legs to get under the ball — bend knees, lift with shoulder</li>
+          <li><strong>Pendulum arm:</strong> wrist locked; paddle is an extension of the forearm. The biggest TSD mistake is "finessing with the wrist" — don't.</li>
+          <li>Push UP and forward (lift), not OUT (drive)</li>
+          <li>Aim high — peak of arc should be 1.2–1.8 m above net height</li>
+          <li>Late contact is the silent killer of TSDs — be early, contact in front</li>
+        </ul>
+      </div>
+      <div class="analogy">
+        <div class="analogy-label">Analogy</div>
+        Imagine you're scooping water from a bucket and tossing it gently into a basket on the other side of the net. That's the lift motion. Not a throw — a lift.
+      </div>
+      <div class="callout cue">
+        <div class="callout-label">The wall as your coach</div>
+        <p>The wall gives <strong>instant feedback</strong>. If the ball hits ABOVE your target zone (1.8 m mark), you popped it. If it hits below, you drove it. The constraint forces you to solve the problem in real time — no need for an instructor.</p>
+      </div>
+      <div class="compare">
+        <div class="compare-good">
+          <div class="compare-label">✓ Doing it right</div>
+          <ul>
+            <li>Ball arcs up high, falls softly</li>
+            <li>You feel like you "lifted" it</li>
+            <li>Knees bent, body balanced</li>
+            <li>Wrist felt completely still</li>
+          </ul>
+        </div>
+        <div class="compare-bad">
+          <div class="compare-label">✗ Doing it wrong</div>
+          <ul>
+            <li>Ball flies flat into the wall</li>
+            <li>You feel like you "swung at" it</li>
+            <li>Standing tall, leaning back</li>
+            <li>Wrist snapped or flicked</li>
+          </ul>
+        </div>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Checkpoint</div>
+        <ul>
+          <li>Month 3: 5/10 clean (low rebound); Month 6: 7/10; Month 12: 9/10</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">04 / 10</span>
+        <span class="drill-title">Speed-up / reset combo</span>
+        <span class="drill-tag new">★ 3.0 → 4.0 separator</span>
+      </div>
+      <p class="drill-summary">This drill builds the single skill that most separates 3.5 from 4.0: absorbing pace and turning it back into soft.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Setup</div>
+        <ul>
+          <li>Stand <strong>1.5 m</strong> from wall</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution (basic)</div>
+        <ul>
+          <li>Hit a medium-hard drive at the wall</li>
+          <li>Immediately absorb the rebound with a soft block — drop it into "dink height"</li>
+          <li>Repeat: drive → reset → drive → reset</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution (advanced — gear-shift variant)</div>
+        <ul>
+          <li>Three fast volleys, then ONE soft reset, repeat</li>
+          <li>Trains the mental gear-shift between hand-battle mode and reset mode — the exact transition that separates 3.5 from 4.0</li>
+          <li>Per The Dink's hand-battle guide: "alternate between three fast volleys and a soft reset, keeping paddle face open on the reset to redirect into the kitchen"</li>
+        </ul>
+      </div>
+      <div class="callout cue">
+        <div class="callout-label">The cue</div>
+        <p><strong>"Catch, don't hit."</strong> Your paddle absorbs pace, never adds to it. Soft hands are the goal — the ball should die at your feet. Per USA Pickleball: a tight grip makes the ball bounce off too hard; a relaxed grip lets the paddle absorb pace.</p>
+      </div>
+      <div class="analogy">
+        <div class="analogy-label">Analogy</div>
+        Think of catching a raw egg someone tosses at you. You don't catch it with stiff hands — you let your hand "give" to absorb the speed so it doesn't crack. Same motion, with a paddle.
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Key cues</div>
+        <ul>
+          <li>Compact motion — paddle out front, no backswing</li>
+          <li>Grip stays soft on the reset (~2–3/10)</li>
+          <li>Paddle face slightly open, very brief contact</li>
+        </ul>
+      </div>
+      <div class="signpost">
+        <div class="signpost-label">You'll know you've got it when…</div>
+        <p>The ball comes back HARD off your drive, and somehow your reset still drops gently to your feet. It almost feels like magic the first time it works.</p>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Checkpoint</div>
+        <ul>
+          <li>Month 3: 5 consecutive resets; Month 6: 10; Month 12: 20+</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">05 / 10</span>
+        <span class="drill-title">Wall block drill</span>
+      </div>
+      <p class="drill-summary">Hand-battle reflex: rapid-fire blocks, no swing.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Setup &amp; Execution</div>
+        <ul>
+          <li>Stand <strong>~1 m</strong> from wall</li>
+          <li>Rapid-fire volleys against wall — no bounce</li>
+          <li>Paddle stays out in front, compact motion only</li>
+          <li>Punch, don't swing</li>
+        </ul>
+      </div>
+      <div class="signpost">
+        <div class="signpost-label">You'll know you've got it when…</div>
+        <p>You can sustain rapid contacts without ever bringing the paddle behind your body. It feels almost like a metronome — tap, tap, tap.</p>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Checkpoint</div>
+        <ul>
+          <li>Month 3: 30 controlled contacts; Month 6: 50; Month 12: 100+</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">06 / 10</span>
+        <span class="drill-title">Forehand priority drill</span>
+        <span class="drill-tag new">FH habit</span>
+      </div>
+      <p class="drill-summary">Direct fix for the backhand-default habit at the kitchen.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution</div>
+        <ul>
+          <li>Wall dink with strict rule: any ball that lands center or to the right of center, you MUST take with forehand</li>
+          <li>Use the pivot step (right foot back) to create space for the FH</li>
+          <li>5 minutes per day for 4 weeks — habit shifts</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Checkpoint</div>
+        <ul>
+          <li>Filmed kitchen exchange in social: FH usage at least 40% by month 6, 50% by month 12</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">07 / 10</span>
+        <span class="drill-title">Shadow swing</span>
+      </div>
+      <p class="drill-summary">No ball needed. Pure form work in front of a mirror — underrated.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution</div>
+        <ul>
+          <li>20 slow-mo third-shot drops (FH and BH)</li>
+          <li>20 dinks (FH and BH)</li>
+          <li>20 volley punches</li>
+        </ul>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Each rep, check</div>
+        <ul>
+          <li>Shoulder turn early?</li>
+          <li>Paddle face stable?</li>
+          <li>Contact point in front of body?</li>
+          <li>Follow-through low (dinks/drops) or through the ball (drives)?</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">08 / 10</span>
+        <span class="drill-title">Split-step isolation</span>
+        <span class="drill-tag">★ Foundation</span>
+      </div>
+      <p class="drill-summary">Builds the reflex you said you can't do naturally. Four weeks of daily reps fixes it. Two valid versions — pick whichever feels less awkward and stick with it.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Version A — Standard hop split step</div>
+        <ul>
+          <li>Stand in ready position in front of mirror</li>
+          <li>Set a metronome at 60 BPM (or count "one" every second)</li>
+          <li>Every beat: tiny split step — small hop, land balanced, slightly forward, knees soft</li>
+          <li>50/day, every day</li>
+        </ul>
+      </div>
+      <div class="callout cue">
+        <div class="callout-label">Version B — Step-out (for non-athletic players)</div>
+        <p>Per The Dink's split-step guide for seniors and non-athletic players: <strong>"Instead of hopping, take a small step forward with one foot while simultaneously stepping back with the other. Your feet never leave the ground at the same time."</strong> It's less explosive but less jarring on knees and ankles, and it accomplishes the same goal — stopping forward momentum and creating a moment of readiness. <strong>This is a legitimate, fully-recognized technique</strong>, not a beginner shortcut.</p>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Timing (the hardest part — same for both versions)</div>
+        <ul>
+          <li>Begin the split JUST BEFORE opponent contacts the ball</li>
+          <li>Be airborne (or mid-step-out) at the moment of their contact</li>
+          <li>Land as the ball leaves their paddle</li>
+          <li>Per USA Pickleball: this timing is the single hardest thing to internalize. Mirror reps are how it sticks.</li>
+        </ul>
+      </div>
+      <div class="callout cue">
+        <div class="callout-label">Important</div>
+        <p>Whichever version you pick, it's <strong>tiny</strong>. It's not a jump. Just unweight slightly so you're light on your feet when the ball comes. It's a timing thing, not a strength thing.</p>
+      </div>
+      <div class="signpost">
+        <div class="signpost-label">You'll know you've got it when…</div>
+        <p>You start doing it without thinking, even while watching pickleball on TV. Your brain has wired the timing.</p>
+      </div>
+      <div class="drill-section">
+        <div class="drill-section-label">Checkpoint</div>
+        <ul>
+          <li>Filmed game: split step (or step-out) visible before 60% of opponent shots by month 3, 80% by month 6, 90%+ by month 12</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">09 / 10</span>
+        <span class="drill-title">Reaction drill</span>
+      </div>
+      <p class="drill-summary">Hand speed for hand battles.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution</div>
+        <ul>
+          <li>Hold paddle in ready position</li>
+          <li>Drop foam ball from shoulder height with non-paddle hand</li>
+          <li>Catch with paddle face before second bounce</li>
+          <li>Variant: drop from random heights / behind your back</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="drill">
+      <div class="drill-header">
+        <span class="drill-num">10 / 10</span>
+        <span class="drill-title">Lunge + paddle extension</span>
+      </div>
+      <p class="drill-summary">Builds the leg muscle for low contact at the kitchen.</p>
+      <div class="drill-section">
+        <div class="drill-section-label">Execution</div>
+        <ul>
+          <li>Lunge forward (left leg, then right)</li>
+          <li>At full lunge, extend paddle to where a low shot would be</li>
+          <li>3×10 each side</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="checkpoints">
+  <div class="section-header">
+    <span class="section-num">13</span>
+    <h2>Diagnostic checkpoints</h2>
+  </div>
+  <p class="section-intro">How you measure progress objectively. Without this table, you'll feel like you're improving when you're not.</p>
+
+  <h3>How to use this table</h3>
+  <ol>
+    <li>Set a calendar reminder every 6 weeks.</li>
+    <li>On checkpoint day, run all the tests in one practice session (~45 min).</li>
+    <li>Write down your numbers in a notebook.</li>
+    <li>Compare to the column matching your week (Wk 6, Wk 12, etc).</li>
+    <li>Hit ≥80% of the targets? Good — proceed to the next phase.</li>
+    <li>Below 80%? Repeat the previous phase for another 3–4 weeks.</li>
+  </ol>
+  <p>Numbers in green get darker as targets get harder — your visual progress map.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Test</th>
+          <th class="num">Wk 6</th>
+          <th class="num">Wk 12</th>
+          <th class="num">Wk 18</th>
+          <th class="num">Wk 24</th>
+          <th class="num">Wk 30</th>
+          <th class="num">Wk 36</th>
+          <th class="num">Wk 42</th>
+          <th class="num">Wk 48</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">FH wall dinks (consec)</td>
+          <td class="num heat-1">20</td>
+          <td class="num heat-2">50</td>
+          <td class="num heat-3">70</td>
+          <td class="num heat-4">100</td>
+          <td class="num heat-5">130</td>
+          <td class="num heat-6">150</td>
+          <td class="num heat-7">180</td>
+          <td class="num heat-8">200</td>
+        </tr>
+        <tr>
+          <td class="label">BH wall dinks (consec)</td>
+          <td class="num heat-1">15</td>
+          <td class="num heat-2">30</td>
+          <td class="num heat-3">50</td>
+          <td class="num heat-4">70</td>
+          <td class="num heat-5">90</td>
+          <td class="num heat-6">110</td>
+          <td class="num heat-7">130</td>
+          <td class="num heat-8">150</td>
+        </tr>
+        <tr>
+          <td class="label">Alternating dinks (consec)</td>
+          <td class="num heat-1">10</td>
+          <td class="num heat-2">30</td>
+          <td class="num heat-3">50</td>
+          <td class="num heat-4">70</td>
+          <td class="num heat-5">100</td>
+          <td class="num heat-6">130</td>
+          <td class="num heat-7">170</td>
+          <td class="num heat-8">200</td>
+        </tr>
+        <tr>
+          <td class="label">Drops below net height (out of 10)</td>
+          <td class="num heat-1">3</td>
+          <td class="num heat-2">5</td>
+          <td class="num heat-3">6</td>
+          <td class="num heat-4">7</td>
+          <td class="num heat-5">8</td>
+          <td class="num heat-6">8</td>
+          <td class="num heat-7">9</td>
+          <td class="num heat-8">9</td>
+        </tr>
+        <tr>
+          <td class="label">Speed-up/reset (consec)</td>
+          <td class="num heat-1">3</td>
+          <td class="num heat-2">5</td>
+          <td class="num heat-3">8</td>
+          <td class="num heat-4">10</td>
+          <td class="num heat-5">14</td>
+          <td class="num heat-6">17</td>
+          <td class="num heat-7">20</td>
+          <td class="num heat-8">25</td>
+        </tr>
+        <tr>
+          <td class="label">Split-step rate (filmed game)</td>
+          <td class="num heat-1">30%</td>
+          <td class="num heat-2">60%</td>
+          <td class="num heat-3">70%</td>
+          <td class="num heat-4">75%</td>
+          <td class="num heat-5">80%</td>
+          <td class="num heat-6">85%</td>
+          <td class="num heat-7">90%</td>
+          <td class="num heat-8">90%+</td>
+        </tr>
+        <tr>
+          <td class="label">FH usage at kitchen (filmed)</td>
+          <td class="num heat-1">20%</td>
+          <td class="num heat-2">30%</td>
+          <td class="num heat-3">35%</td>
+          <td class="num heat-4">40%</td>
+          <td class="num heat-5">45%</td>
+          <td class="num heat-6">50%</td>
+          <td class="num heat-7">50%</td>
+          <td class="num heat-8">50%+</td>
+        </tr>
+        <tr>
+          <td class="label">Pops per game (lower = better)</td>
+          <td class="num">track</td>
+          <td class="num">track</td>
+          <td class="num heat-1">&lt;8</td>
+          <td class="num heat-3">&lt;6</td>
+          <td class="num heat-4">&lt;5</td>
+          <td class="num heat-5">&lt;4</td>
+          <td class="num heat-7">&lt;3</td>
+          <td class="num heat-8">&lt;2</td>
+        </tr>
+        <tr>
+          <td class="label">Unforced errors per game</td>
+          <td class="num">track</td>
+          <td class="num heat-1">&lt;12</td>
+          <td class="num heat-2">&lt;10</td>
+          <td class="num heat-3">&lt;8</td>
+          <td class="num heat-4">&lt;7</td>
+          <td class="num heat-5">&lt;6</td>
+          <td class="num heat-7">&lt;5</td>
+          <td class="num heat-8">&lt;5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warning">
+    <div class="callout-label">Decision rule</div>
+    <p>If you're not hitting 80% of the targets at a checkpoint, do <strong>NOT</strong> advance to the next phase. Repeat the previous phase for another 3–4 weeks. Pretending you're ready when you're not is exactly how you got stuck the first time.</p>
+  </div>
+</section>
+
+<section id="benchmarks">
+  <div class="section-header">
+    <span class="section-num">14</span>
+    <h2>Skill benchmarks: 3.0 vs 4.0</h2>
+  </div>
+  <p class="section-intro">What 3.5 and 4.0 actually look like, skill by skill. Memorize the right column.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>3.0 level (current)</th>
+          <th>4.0 objective (target)</th>
+          <th>Diagnostic test</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Third shot drop</td>
+          <td>&lt; 30% success; often popped</td>
+          <td>&gt; 70% success (unattackable)</td>
+          <td>7/10 drops from baseline land in kitchen</td>
+        </tr>
+        <tr>
+          <td class="label">Dinking</td>
+          <td>Reactive; waiting for opponent error</td>
+          <td>Purposeful; moving the opponent</td>
+          <td>Sustain 15-ball dink rally without popping up</td>
+        </tr>
+        <tr>
+          <td class="label">Transition</td>
+          <td>Stuck in "no man's land"</td>
+          <td>Fluid movement to NVZ line</td>
+          <td>Reach kitchen line after every 3rd shot</td>
+        </tr>
+        <tr>
+          <td class="label">Hand battles</td>
+          <td>Large swings; "slapping"</td>
+          <td>Compact blocks; targets opponent's feet</td>
+          <td>4 fast exchanges in a row, ball stays low</td>
+        </tr>
+        <tr>
+          <td class="label">Resets</td>
+          <td>Often returns hard with hard</td>
+          <td>Absorbs pace, drops into kitchen</td>
+          <td>10 consecutive soft resets after fast feed</td>
+        </tr>
+        <tr>
+          <td class="label">Forehand at kitchen</td>
+          <td>Rarely used; runs from middle balls</td>
+          <td>Dominant weapon; takes middle &amp; right</td>
+          <td>50%+ of kitchen shots are FH</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="fixes">
+  <div class="section-header">
+    <span class="section-num">15</span>
+    <h2>Specific fixes for your problems</h2>
+  </div>
+  <p class="section-intro">Targeted troubleshooting for the four issues you specifically named.</p>
+
+  <h3>1. Pop on third-shot drop</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Cause</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td class="label">Grip too tight</td><td>2–3/10 grip pressure. Forearm should feel relaxed.</td></tr>
+        <tr><td class="label">Paddle face too open</td><td>Slightly open, NOT flipped up. Face nearly vertical with a small upward tilt.</td></tr>
+        <tr><td class="label">Wrist flick</td><td>Lock the wrist. Paddle is an extension of forearm. Push from shoulder.</td></tr>
+        <tr><td class="label">Contact too late / too high</td><td>Contact in front of lead foot, ball at knee-to-thigh height.</td></tr>
+        <tr><td class="label">Driving forward instead of lifting</td><td>Push UP and forward, not OUT. Aim peak of arc 1.2–1.8 m above net.</td></tr>
+        <tr><td class="label">Standing tall</td><td>Bend knees, get under the ball. Use legs to lift.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2. Pop in hand battle</h3>
+  <div class="callout cue">
+    <div class="callout-label">The 4.0 rule</div>
+    <p>If the ball is <strong>below net height</strong>, RESET it (dink it back). Only "speed up" or attack balls that are at or above net level. <strong>The player who tries to hit a low ball hard is the one who loses the point.</strong> This single rule, applied consistently, would fix most of your hand-battle pops immediately.</p>
+  </div>
+  <ul>
+    <li>Soft grip (2–3/10) — same as drops</li>
+    <li>Use opponent's pace — block, don't swing</li>
+    <li>Paddle out in front of body, never behind</li>
+    <li>Compact motion (think: dampers), not full swing</li>
+    <li>If you're popping a lot in hand battles, you're often too far off the kitchen line — get your toes to the line</li>
+  </ul>
+
+  <h3>3. Backhand over-reliance at kitchen</h3>
+  <p>This is partly a footwork problem, partly a mental default. The fix has three parts:</p>
+  <ul>
+    <li><strong>Pivot step.</strong> When ball comes to your right (FH side), pivot your right foot back and slightly out, opening your hips to the ball. This creates space for a forehand swing instead of cramping into a backhand.</li>
+    <li><strong>Ready position.</strong> Keep paddle centered but biased <em>slightly toward the forehand</em>. This trains the brain to default FH.</li>
+    <li><strong>Drilling.</strong> The FH-priority drill (#06) — 5 min/day for 4 weeks. Habit will shift.</li>
+  </ul>
+  <div class="callout cue">
+    <div class="callout-label">Why this matters</div>
+    <p>High-level players use the forehand to "take space" in the middle because it has longer reach and more offensive potential. A 4.0 player covers the middle of the court with their forehand, not their backhand. Your one-handed backhand will always be more defensive than offensive. Make peace with that and develop your forehand as your primary weapon.</p>
+  </div>
+
+  <h4>Bonus: clean up the one-handed backhand itself</h4>
+  <p>You'll still hit backhands — make them better, even if they're your second option. Per The Dink's backhand fix guide, the one-handed BH is a four-step sequence:</p>
+  <ol>
+    <li><strong>Turn together.</strong> Left foot, hip, and shoulder rotate back as one unit (early prep)</li>
+    <li><strong>Step forward</strong> with your right foot toward your target</li>
+    <li><strong>Extend the paddle</strong> forward in a straight pathway — no curve</li>
+    <li><strong>Follow through</strong> naturally, stroking up and away from your body</li>
+  </ol>
+  <p>Contact point: out in front, roughly next to your right foot. Paddle face <strong>square to the other side of the court</strong> at contact — open pops it up, closed sends it into the net.</p>
+  <div class="callout">
+    <div class="callout-label">Speed control trick</div>
+    <p>If your backhand is breaking down, slow it down to <strong>70% speed</strong> until you regain control, then build speed back. Inconsistency almost always comes from poor timing or paddle angle, never from "not enough power."</p>
+  </div>
+
+  <h3>4. No split step</h3>
+  <ul>
+    <li>Daily mirror reps (50/day for 4 weeks) — both hop and step-out versions described in <a href="#drills">Drill #08</a></li>
+    <li>Trigger: opponent's paddle starts to swing → you split step</li>
+    <li>The split step is <strong>tiny</strong>. Don't worry about being athletic. Just unweight slightly and land balanced. Timing &gt; strength.</li>
+    <li>In social: focus session #4 ("Split step before every opponent shot, no exceptions") — make it the only thing you care about for one game</li>
+  </ul>
+</section>
+
+<section id="social">
+  <div class="section-header">
+    <span class="section-num">16</span>
+    <h2>Social play strategy</h2>
+  </div>
+  <p class="section-intro">How to extract maximum learning from your 1–2 weekly social sessions.</p>
+  <p>Stop playing to win. Start playing to execute.</p>
+  <div class="callout">
+    <div class="callout-label">The single-objective rule</div>
+    <p>Choose <strong>ONE</strong> skill per session. If you successfully execute that skill, the session is a success regardless of the score. Losing a social game while practicing your weakness is a win.</p>
+  </div>
+
+  <h3>Focus rotation</h3>
+  <p>Cycle through these one per session. Once you've gone through all six, restart.</p>
+  <div class="rotation">
+    <div class="rotation-item"><span>Every third shot is a drop, regardless of score</span></div>
+    <div class="rotation-item"><span>Forehand priority — if the ball is anywhere center or right, I take it forehand</span></div>
+    <div class="rotation-item"><span>Soft grip on every kitchen exchange — let them hit the winner if they want</span></div>
+    <div class="rotation-item"><span>Split step before every opponent shot, no exceptions</span></div>
+    <div class="rotation-item"><span>No drives. Only drops.</span></div>
+    <div class="rotation-item"><span>All dinks cross-court only — never down the line</span></div>
+  </div>
+
+  <h3>Pre-session ritual</h3>
+  <ul>
+    <li>Arrive 15–30 min early</li>
+    <li>Find anyone willing — even a 2.5 player can dink with you for 10 minutes</li>
+    <li>50 cooperative dinks before games start. This is your only cooperative practice — protect it.</li>
+  </ul>
+
+  <h3>Post-session evaluation (5 minutes)</h3>
+  <p>Track these three numbers each session and watch them improve:</p>
+  <ul class="checklist">
+    <li><strong>Unforced error count.</strong> How many times did you hit into the net or out of bounds without being pressured? Target: &lt;5 per game by month 6.</li>
+    <li><strong>Forehand utilization at the kitchen.</strong> Did you take at least 40% of middle balls with your forehand? (Have a friend video one game per month.)</li>
+    <li><strong>Kitchen success.</strong> How many times did you successfully transition from baseline to the NVZ line? Target: every serve-receive sequence by month 6.</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <div class="section-header">
+    <span class="section-num">17</span>
+    <h2>FAQ</h2>
+  </div>
+  <p class="section-intro">Questions you'll have. Answers up front.</p>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">I'm too tired/busy some days. What's the absolute minimum?</div>
+      <div class="faq-a"><div>10 minutes: 50 FH wall dinks + 50 BH wall dinks + 50 mirror split steps. Done. Showing up beats perfect — a small daily habit beats a perfect occasional one. The only "wrong" amount is zero.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I know if I'm doing it right without a coach?</div>
+      <div class="faq-a"><div>Three ways: (1) Wall feedback — the ball doesn't lie. If your dink keeps going past you, your contact is off. (2) Film yourself once a week and compare to a YouTube reference (Ben Johns dink, Tyson McGuffin drop). (3) The "right vs. wrong" boxes in each drill — they're checklists.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">My apartment doesn't allow noise. Can I still drill?</div>
+      <div class="faq-a"><div>Yes — foam balls are nearly silent. If you're worried, look up "Ninja Ball" or other quiet practice balls (~$10–15). Shadow swings are completely silent. Mirror split steps are silent. You can do 80% of this plan without making noise.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I skip phases if I'm progressing fast?</div>
+      <div class="faq-a"><div>Only if you've actually hit the checkpoint targets. The numbers don't lie. If you can do 100 alternating dinks at week 6 (Phase 2 target), great — move on. If you can't, repeat. Most players who "progress fast" haven't actually progressed; they've just gotten bored.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">My friends don't drill and seem fine. Why am I doing this?</div>
+      <div class="faq-a"><div>Your friends are also stuck. They've adapted to playing-only and reached their ceiling. You watched yourself stagnate for a year on the same path. The drilling isn't the slow path — it's the fast one. People who "got good without drilling" are usually 5+ years in or have transferable racquet skills.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I miss a checkpoint?</div>
+      <div class="faq-a"><div>Just do it the next week. Don't stress. The checkpoint dates are guideposts, not deadlines. What matters is that you do the test honestly when you do it, and adjust the plan based on the result.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I'm bored after 2 weeks. Is this normal?</div>
+      <div class="faq-a"><div>Completely normal. Boredom is the price of mastery — repetition is what builds the skill, but repetition is boring. Solutions: vary the drill rotation, listen to a podcast while drilling (low-stakes work), set tighter consecutive-count goals to stay engaged, watch pro matches between sessions to remember why you're doing this.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should I get a different paddle?</div>
+      <div class="faq-a"><div>No. The Monarch 16mm is a control paddle, perfect for what you're learning. Switching paddles right now would just add another variable. Re-evaluate at month 12 if you're considering tournament play.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should I get lessons?</div>
+      <div class="faq-a"><div>If your budget allows ~$60–80 for ONE lesson, it's worth it after month 3 — once you have technique to refine. Bring video of yourself and ask the pro for ONE specific fix. Don't get a series of lessons until you've shown yourself you can stick with the plan.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I find drill partners?</div>
+      <div class="faq-a"><div>(1) Ask other 3.0–3.5 players at your social if anyone wants to drill before games — many do but never ask. (2) Look for a local Facebook group or DUPR community. (3) Sign up for a "skills clinic" at a local rec center — meet people at your level.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What's the difference between DUPR 3.0 and 3.5 in practice?</div>
+      <div class="faq-a"><div>A 3.0 hits ~15 unforced errors per game and pops the ball ~10 times. A 3.5 hits ~6 unforced errors and pops ~3–4 times. The shots are similar; the consistency is night and day.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I keep getting beat by older/slower players. Why?</div>
+      <div class="faq-a"><div>Because they have technique and you have only athleticism. They wait for your error; you supply it. They put the ball low; you pop it up. The fix is exactly this plan — once your technique catches up, your athleticism becomes a real advantage.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">When should I start playing tournaments?</div>
+      <div class="faq-a"><div>End of Phase 3 (around month 9). A "rec" or "novice" bracket tournament is a great pressure test. Don't expect to win — go to learn what your weaknesses are when the stakes are real.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">My forearm/elbow hurts after drilling. What's wrong?</div>
+      <div class="faq-a"><div>Almost always grip pressure too high. If your forearm is sore, you're at 6+/10 instead of 2–3/10. Re-read the <a href="#grip">grip pressure scale</a>. If you're sure your grip is light and pain persists, rest for a few days and reduce volume.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is foam ball practice REALLY transferable to real ball play?</div>
+      <div class="faq-a"><div>For form, timing, hand-eye, footwork: yes, ~90% transferable. For exact stroke calibration (how hard to hit a real ball at a specific distance): no, you have to recalibrate. That's why we add 5–10 min of warmup with real balls at social.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I'm still 3.0 at month 12?</div>
+      <div class="faq-a"><div>Then either you didn't follow the plan (be honest with yourself), OR your time budget was too low. Most likely: re-read the principles section, restart at Phase 1, and aim for 3.5 by month 18. Pickleball isn't a race.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="resources">
+  <div class="section-header">
+    <span class="section-num">18</span>
+    <h2>Free education resources</h2>
+  </div>
+  <p class="section-intro">Watch 1–2 short videos per week related to your current phase focus. Don't binge — implement.</p>
+  <div class="resources">
+    <div class="resource">
+      <div class="resource-name">Briones Pickleball</div>
+      <div class="resource-desc">High-quality coaching, drill explanations</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">Mark Renneson / Third Shot Sports</div>
+      <div class="resource-desc">Technical breakdowns of pro shots</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">Pickleball Studio</div>
+      <div class="resource-desc">Gear plus skill content</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">PrimeTime Pickleball</div>
+      <div class="resource-desc">Beginner-to-intermediate fundamentals</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">Stephen LeBoeuf / Pickleball 360</div>
+      <div class="resource-desc">Pro analysis</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">Ben Johns YouTube</div>
+      <div class="resource-desc">Reference for dinking and drop technique</div>
+    </div>
+  </div>
+</section>
+
+<section id="pitfalls">
+  <div class="section-header">
+    <span class="section-num">19</span>
+    <h2>Common pitfalls</h2>
+  </div>
+  <p class="section-intro">Things people do that erase the gains they just made.</p>
+  <ol>
+    <li><strong>Drilling without focus.</strong> "I'll just hit the wall for 20 minutes" decays into mindless reps. Always have ONE technical thing you're checking each rep.</li>
+    <li><strong>Skipping checkpoints.</strong> Without measurement you'll feel like you're improving when you're not — this is exactly your current situation.</li>
+    <li><strong>Trying to copy pro grips/stances exactly.</strong> They're 1.85 m tall pros. Copy the principles (low contact, soft grip, split step), not the cosmetics.</li>
+    <li><strong>Going hard on social days.</strong> Save tournament intensity for drilling. Social = deliberate practice mode, not competitive mode.</li>
+    <li><strong>Quitting drills when bored.</strong> Boredom is the price of mastery. The 50th wall dink builds the habit, not the 5th.</li>
+    <li><strong>Adding new things before basics are solid.</strong> Don't worry about ATP shots, Erne, around-the-post until you can dink 100 in a row.</li>
+    <li><strong>Lying to yourself on checkpoints.</strong> If you can't hit 100 alternating dinks consecutively, you can't. Don't round up. Don't move to the next phase.</li>
+  </ol>
+</section>
+
+<section id="signs">
+  <div class="section-header">
+    <span class="section-num">20</span>
+    <h2>Signs you're improving (beyond the numbers)</h2>
+  </div>
+  <p class="section-intro">Subtle signals that your training is working — even between checkpoints.</p>
+  <ul class="success-list">
+    <li>Your forearm stops being sore after the first week of soft-grip drilling</li>
+    <li>You start anticipating shots instead of just reacting to them</li>
+    <li>You catch yourself doing a split step while watching pickleball on YouTube</li>
+    <li>Friends say "you look different out there" or "you're moving better"</li>
+    <li>You stop dreading certain shots (that backhand dink no longer scares you)</li>
+    <li>You can predict what your opponent will do before they do it</li>
+    <li>You play a social game and remember almost no specific points — because nothing went badly enough to stand out</li>
+    <li>You start enjoying dink rallies instead of itching to attack</li>
+    <li>You lose fewer points to "I just made a mistake" and more to "they hit a great shot"</li>
+    <li>Your wrist actively feels locked on third shot drops without you thinking about it</li>
+    <li>You start beating people you used to lose to consistently</li>
+  </ul>
+</section>
+
+<section id="success">
+  <div class="section-header">
+    <span class="section-num">21</span>
+    <h2>What success looks like at month 12</h2>
+  </div>
+  <p class="section-intro">The end-state vision. Print this. Read it when you're tired.</p>
+  <ul class="success-list">
+    <li>You walk onto a court and trust your dink, drop, drive, and block</li>
+    <li>You consistently use forehand at the kitchen when the ball is on the FH side or middle</li>
+    <li>Pop count is in single digits per game — usually 1–3</li>
+    <li>You split step automatically; friends notice you're "moving differently"</li>
+    <li>You can construct a point: drop → patient dink → induce pop → speedup</li>
+    <li>You no longer hit balls below net height with pace (you reset them instead)</li>
+    <li>A genuine 3.5 player can play with you and not be bored. A 4.0 player can play with you without it being a clinic.</li>
+  </ul>
+</section>
+
+<section id="starter">
+  <div class="section-header">
+    <span class="section-num">22</span>
+    <h2>Starter routine — first 2 weeks</h2>
+  </div>
+  <p class="section-intro">If everything else is overwhelming, just do this. Exactly this. For 14 days. Then re-read.</p>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h4>Daily (30 min)</h4>
+      <ul class="checklist">
+        <li>50 forehand wall dinks (consecutive count)</li>
+        <li>50 backhand wall dinks</li>
+        <li>50 split steps in front of mirror</li>
+        <li>50 shadow third-shot drops (each side)</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h4>3×/week (10 min add-on)</h4>
+      <ul class="checklist">
+        <li>Wall sit 3×60 sec</li>
+        <li>Calf raises 3×20</li>
+        <li>Plank 3×45 sec</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h4>Weekly</h4>
+      <ul class="checklist">
+        <li>Film yourself doing wall dinks once</li>
+        <li>Watch slow-mo. Look for: tight forearm = tight grip; contact point in front or beside body; paddle face stable.</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h4>At social</h4>
+      <ul class="checklist">
+        <li>Arrive 15 min early, find anyone, dink with them</li>
+        <li>Pick ONE focus per session (rotate through the list)</li>
+        <li>5-min reflection after</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="pull-quote">In 14 days you'll have done <em>700 forehand dinks, 700 backhand dinks, 700 split steps, and 1,400 shadow drops</em>. That's more deliberate practice than the entire previous year.<span class="by">The math of why this works</span></p>
+</section>
+
+<section id="sources">
+  <div class="section-header">
+    <span class="section-num">23</span>
+    <h2>Sources &amp; further reading</h2>
+  </div>
+  <p class="section-intro">Where every refined coaching cue in this plan comes from. All authoritative.</p>
+  <p>Every refined coaching cue in this plan is sourced from a recognized authority — the governing body, established media outlets with credentialed pro contributors, or major manufacturers with pro coaching teams. No random TikTok influencers.</p>
+
+  <h3>Primary sources used in this plan</h3>
+  <div class="resources">
+    <div class="resource">
+      <div class="resource-name"><a href="https://usapickleball.org/blog/how-to-master-the-split-step-for-faster-reactions/">USA Pickleball — Split Step Guide</a></div>
+      <div class="resource-desc">Governing body. Source for split-step timing mechanics.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/split-step-pickleball-footwork-tips-for-seniors/">The Dink — Split Step for Seniors</a></div>
+      <div class="resource-desc">Source for the step-out alternative for non-athletic players.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/how-to-stop-popping-the-ball-up-at-the-kitchen/">The Dink — How to Stop Popping the Ball</a></div>
+      <div class="resource-desc">Diagnoses the four root causes of pop-ups: late contact, open paddle face, too much arm, grip tension.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/advanced-pickleball-dinking-pro-techniques-for-kitchen-control/">The Dink — Advanced Dinking Techniques</a></div>
+      <div class="resource-desc">Source for the 1/10 grip pressure refinement, "preset paddle angle," and "hit on the descent" cues.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/pickleball-backhand-fix-your-weak-side-fast/">The Dink — Pickleball Backhand Fix</a></div>
+      <div class="resource-desc">Source for the one-handed backhand four-step sequence and 70% speed-control trick.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/hand-battle-pickleball-9-secrets-to-win/">The Dink — Hand Battle: 9 Secrets</a></div>
+      <div class="resource-desc">Source for the "three fast volleys, then one soft reset" alternating drill pattern.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://usapickleball.org/strategies/what-is-a-pickleball-reset-shot-and-how-to-hit-it/">USA Pickleball — Reset Shot Guide</a></div>
+      <div class="resource-desc">Foundation for soft hands and reset paddle angle.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/the-12-drills-you-need-to-play-your-best-pickleball-in-2026/">The Dink — 12 Drills for 2026</a></div>
+      <div class="resource-desc">Source for the "three resets minimum in transition" rule and intermediate-level drill structure.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/3-pickleball-touch-drills-to-transform-your-game/">The Dink — 3 Touch Drills</a></div>
+      <div class="resource-desc">Source for "still head at contact" and the 50-ball foundation drill concept.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://usapickleball.org/blog/basics-of-the-third-shot-drop/">USA Pickleball — Third Shot Drop Basics</a></div>
+      <div class="resource-desc">Foundation reference for the third shot drop motion.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/the-pickleball-reset-the-one-skill-that-takes-you-from-3-5-to-5-0/">The Dink — The Reset: 3.5 to 5.0</a></div>
+      <div class="resource-desc">Why resets are the single biggest 3.5 → 4.0 separator.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name"><a href="https://www.thedinkpickleball.com/best-wall-drills/">The Dink — Best Wall Drills</a></div>
+      <div class="resource-desc">Wall drill setup conventions (target zones, distance from wall).</div>
+    </div>
+  </div>
+
+  <h3>YouTube channels to follow</h3>
+  <div class="resources">
+    <div class="resource">
+      <div class="resource-name">Briones Pickleball</div>
+      <div class="resource-desc">High-quality coaching, drill explanations. Beginner-friendly progression.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">Mark Renneson / Third Shot Sports</div>
+      <div class="resource-desc">Technical breakdowns of pro shots from a long-time certified coach.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">PrimeTime Pickleball</div>
+      <div class="resource-desc">Beginner-to-intermediate fundamentals. Nicole Havlicek (certified coach).</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">Stephen LeBoeuf / Pickleball 360</div>
+      <div class="resource-desc">Pro analysis and game-strategy breakdowns.</div>
+    </div>
+    <div class="resource">
+      <div class="resource-name">Ben Johns Pickleball</div>
+      <div class="resource-desc">#1 pro player. Reference for dinking and drop technique form.</div>
+    </div>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-label">Source-quality note</div>
+    <p>This plan deliberately avoids: TikTok/Instagram coaches without playing résumés, brand-new sites with no editorial history, and content that promises a 4.0 in 30 days. Real improvement is a year-long process — anyone selling shortcuts is selling something else.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="ball"></span>
+  Built from constraint: apartment, foam ball, one paddle, one body.<br>
+  Stop reading. Go drill.
+  <span class="ball"></span>
+</footer>
+
+</div>
+</body>
+</html>
